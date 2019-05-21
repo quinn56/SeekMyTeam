@@ -36,6 +36,10 @@ export class NavbarComponent implements OnChanges {
     this.ngOnInit();
   }
 
+  updateUrl(event) {
+    this.profilePic = this.user_utils.buildDefaultProfilePicUrl();
+  }
+
   routeProfile() {
     this.currentEmail = this.user_utils.getCurrentUserDetails().email;
     this.router.navigateByUrl('/profile/' + this.currentEmail);

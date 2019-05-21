@@ -44,6 +44,13 @@ export class UserUtilsService {
     var S3_URL = 'https://s3.us-east-2.amazonaws.com/seekmyteam-profile-pics/';
     return S3_URL + email + '/picture?' + new Date().getTime();
   }
+  
+  public buildDefaultProfilePicUrl() { 
+    var S3_URL = 'https://s3.us-east-2.amazonaws.com/seekmyteam-profile-pics/default_profile.png?';
+    return S3_URL + new Date().getTime();
+  }
+
+
 
   public markApplied(proj: string) {
     var req: MarkAppliedPayload = {

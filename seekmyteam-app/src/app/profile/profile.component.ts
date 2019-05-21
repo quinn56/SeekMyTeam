@@ -239,4 +239,8 @@ export class ProfileComponent {
   resetSelectedProject() {
     this.selectedProject = '';
   }
+
+  updateUrl(event) {
+    this.fileDataUrl = this.user_utils.buildDefaultProfilePicUrl();
+  }
 }

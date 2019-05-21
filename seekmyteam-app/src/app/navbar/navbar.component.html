@@ -4,14 +4,14 @@
     <ul class="col-8 mt-2">
       <img class=" mt-0 mr-4 p-0 ml-3 paddingDiv" src="assets/small.png" height="40" width="30" routerLink='/' style="cursor:pointer">
       <a class="navbar-brand text-white" routerLink="/">SeekMyTeam</a>
-      <a *ngIf="isLoggedIn()" class="nav-item text-white ml-2" routerLink='/users'>Users</a>
+      <a *ngIf="isLoggedIn()" class="nav-item text-white ml-2 nounderline" routerLink='/users'>Users</a>
       <a *ngIf="isLoggedIn()" class="nav-item text-white ml-4" style="cursor: pointer;" (click)="routeMyProjects()">My Projects</a>
     </ul>
     <div *ngIf="isLoggedIn()" class="collapse navbar-collapse col-4" id="navbarColor01">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="img-fluid img" [src]='profilePic'>
+            <img class="img-fluid img" [src]='profilePic' (error)='updateUrl($event)'>
             <!-- <img class="img-fluid img" src="assets/wakanda.jpg"> -->
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,6 +37,10 @@
     object-position: center;
   }
   .paddingDiv:focus {
-  outline: 0;
-}
+    outline: 0;
+  }
+
+  .nounderline {
+    text-decoration: none !important
+  }
 </style>

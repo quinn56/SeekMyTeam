@@ -58,7 +58,7 @@
                     <div class="card-header mt-3 text-left">
                         <div class="row">
                             <div class="col-6">
-                                <img class="img-fluid rounded" [src]='buildPic(user.email)'>
+                                <img class="img-fluid rounded" [src]='buildPic(user.email)' (error)='updateUrl($event)'>
                             </div>
                             <div class="col-6 mt-2">
                                 <h5><b>{{user.name}}</b></h5>
