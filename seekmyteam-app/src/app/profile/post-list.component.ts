@@ -3,7 +3,7 @@ import { UserUtilsService } from '../services/users/user-utils.service';
 import { PostUtilsService } from '../services/posts/post-utils.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Post } from '../home/home.component';
-import { post } from 'selenium-webdriver/http';
+import { SkillsService } from '../services/skills/skills.service';
 
 @Component({
   templateUrl: './post-list.component.html'
@@ -20,13 +20,7 @@ export class PostListComponent {
     showApplied: boolean;
     title: string;
 
-    SKILLS_ARRAY: string[] = [
-        'Web Development',
-        'Backend Development',
-        'Full Stack Development',
-        'Project Management',
-        'Database Management'
-    ];
+    SKILLS_ARRAY: string[];
     
     // Post to keep track of edits without changing before save
     editPost: Post;
@@ -35,11 +29,13 @@ export class PostListComponent {
     constructor(
         private user_utils: UserUtilsService,
         private post_utils: PostUtilsService,
+        private skills: SkillsService,
         private route: ActivatedRoute,
         private router: Router
     ) {}
 
     ngOnInit() {
+        this.SKILLS_ARRAY = this.skills.getSkills();
         this.showApplied = false;
         this.title = 'My Projects';
         this.userPosts = [];

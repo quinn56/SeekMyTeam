@@ -4,6 +4,8 @@ import { PostUtilsService } from '../services/posts/post-utils.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { AlertService } from '../services/alerts/alert.service';
+import { SkillsService } from '../services/skills/skills.service';
+
 
 @Component({
   templateUrl: './profile.component.html'
@@ -43,17 +45,12 @@ export class ProfileComponent {
   selectedProject: string;
   ownedProjects: string[];
 
-  SKILLS_ARRAY: string[] = [
-    'Web Development',
-    'Backend Development',
-    'Full Stack Development',
-    'Project Management',
-    'Database Management'
-  ];
+  SKILLS_ARRAY: string[];
 
   constructor(
     private user_utils: UserUtilsService,
     private post_utils: PostUtilsService,
+    private skills: SkillsService,
     private auth: AuthenticationService,
     private route: ActivatedRoute,
     private alert: AlertService,
@@ -61,6 +58,8 @@ export class ProfileComponent {
   ) {}
 
   ngOnInit() { 
+    this.SKILLS_ARRAY = this.skills.getSkills();
+
     this.loadProfile();
   }
 

@@ -23,6 +23,7 @@ import { AuthRedirectService } from './services/authentication/auth-redirect.ser
 import { UserUtilsService } from './services/users/user-utils.service';
 import { PostUtilsService } from './services/posts/post-utils.service';
 import { AlertService } from './services/alerts/alert.service';
+import { SkillsService } from './services/skills/skills.service';
  
 import { FilterPipe } from './services/pipes/filter.pipe';
 import { SkillsPipe } from './services/pipes/skills.pipe';
@@ -77,7 +78,8 @@ const appRoutes: Routes = [
     AuthenticationService,
     UserUtilsService,
     PostUtilsService,
-    AlertService
+    AlertService,
+    SkillsService
   ],
   bootstrap: [AppComponent]
 })

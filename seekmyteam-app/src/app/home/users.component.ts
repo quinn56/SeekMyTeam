@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserUtilsService, UserProfile } from '../services/users/user-utils.service';
 import { Router } from '@angular/router';
+import { SkillsService } from '../services/skills/skills.service';
 
 @Component({
   templateUrl: './users.component.html'
@@ -9,23 +10,18 @@ export class UsersComponent {
     users: any[];
     searchText: string;
     filterSkills: string[];
-
-    SKILLS_ARRAY: string[] = [
-        'Web Development',
-        'Backend Development',
-        'Full Stack Development',
-        'Project Management',
-        'Database Management'
-    ];
+    SKILLS_ARRAY: string[];
 
     constructor(
         private user_utils: UserUtilsService,
-        private router: Router 
+        private skills: SkillsService,
+        private router: Router
     ) { }
 
     ngOnInit() {
         this.users = [];
         this.filterSkills = [];
+        this.SKILLS_ARRAY = this.skills.getSkills();
 
         this.user_utils.getAllUsers().subscribe((data) => {
             this.parseUsers(data.users);

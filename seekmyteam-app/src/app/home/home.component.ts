@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PostUtilsService } from '../services/posts/post-utils.service';
 import { UserUtilsService } from '../services/users/user-utils.service';
 import { AlertService } from '../services/alerts/alert.service';
+import { SkillsService } from '../services/skills/skills.service';
 
 export interface Post {
     name: string,
@@ -36,17 +37,12 @@ export class HomeComponent {
     isOP: boolean;
     showApply: boolean; 
 
-    SKILLS_ARRAY: string[] = [
-        'Web Development',
-        'Backend Development',
-        'Full Stack Development',
-        'Project Management',
-        'Database Management'
-    ];
+    SKILLS_ARRAY: string[];
 
     constructor(
         private user_utils: UserUtilsService,
         private post_utils: PostUtilsService,
+        private skills: SkillsService,
         private alert: AlertService,
         private router: Router
     ) { }
@@ -55,6 +51,7 @@ export class HomeComponent {
         this.showMore = true;
         this.LastEvaluatedKey = null;
         this.filterSkills = [];
+        this.SKILLS_ARRAY = this.skills.getSkills();
 
         this.newPost = {
             name: "",

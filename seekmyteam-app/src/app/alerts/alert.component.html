@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row w-100 position-fixed pt-2" style="z-index:99;">
     <div *ngFor="let alert of alerts" class="{{cssClass(alert)}} alert-dismissable w-50 offset-4 col-4">
         {{alert.message}}
         <a class="close" style="cursor: pointer;" (click)="removeAlert(alert)">&times;</a>
