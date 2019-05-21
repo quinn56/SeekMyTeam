@@ -8,10 +8,10 @@
         <div class="col-3 mb-3">
           <div class="image" *ngIf="isCurrentUser" style="cursor: pointer;" data-toggle="modal"
             data-target="#profileModal">
-            <img class="img-fluid img rounded" [src]="fileDataUrl" (error)="updateUrl($event)>
+            <img class="img-fluid img rounded" [src]="fileDataUrl" (error)="updateUrl($event)">
           </div>
           <div class="image" *ngIf="!isCurrentUser">
-            <img class="img-fluid img rounded" [src]="fileDataUrl" (error)="updateUrl($event)>
+            <img class="img-fluid img rounded" [src]="fileDataUrl" (error)="updateUrl($event)">
           </div>
           <!-- <div class="image">
               <img class="img-fluid img rounded" src="assets/wakanda.jpg">

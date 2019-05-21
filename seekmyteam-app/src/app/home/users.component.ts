@@ -42,10 +42,6 @@ export class UsersComponent {
         })
     }
 
-    updateUrl(event) {
-        return this.user_utils.buildDefaultProfilePicUrl();
-    }
-
     routeProfile(user: UserProfile) {
         this.router.navigateByUrl('profile/' + user.email);
     }

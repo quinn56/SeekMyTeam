@@ -50,8 +50,6 @@ export class UserUtilsService {
     return S3_URL + new Date().getTime();
   }
 
-
-
   public markApplied(proj: string) {
     var req: MarkAppliedPayload = {
       project: proj

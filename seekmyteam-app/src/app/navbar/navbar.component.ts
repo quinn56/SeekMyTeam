@@ -37,7 +37,7 @@ export class NavbarComponent implements OnChanges {
   }
 
   updateUrl(event) {
-    this.profilePic = this.user_utils.buildDefaultProfilePicUrl();
+    return this.user_utils.buildDefaultProfilePicUrl();
   }
 
   routeProfile() {
